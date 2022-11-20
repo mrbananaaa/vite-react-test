@@ -4,22 +4,8 @@ import { Switch } from "@headlessui/react";
 const ToggleDarkMode = () => {
   const [enabled, setEnabled] = useState(false);
 
-  // set localstorage for darkmode
-
   useEffect(() => {
-    const localTheme = localStorage.getItem("theme");
-
-    if (!localTheme) {
-      localStorage.setItem("theme", "dark");
-    }
-
     if (enabled) {
-      localStorage.setItem("theme", "light");
-    } else {
-      localStorage.setItem("theme", "dark");
-    }
-
-    if (localTheme === "dark") {
       window.document.documentElement.classList.add("dark");
     } else {
       window.document.documentElement.classList.remove("dark");
